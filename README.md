@@ -1,4 +1,4 @@
-# Library Management System (TDD Project)
+﻿# Library Management System (TDD Project)
 
 ## Overview
 This project implements a small library system using Test-Driven Development (TDD).
@@ -10,6 +10,25 @@ This project implements a small library system using Test-Driven Development (TD
 
 ## Technologies
 C# (.NET 8), xUnit, GitHub Actions CI.
+
+## Project Sceleton
+LibraryManagementSystem/
+│
+├── LibraryManagementSystem.Core/
+│   ├── Models/
+│   │   └── Book.cs
+│   ├── Services/
+│   │   └── LibraryService.cs
+│
+├── LibraryManagementSystem.Tests/
+│   └── LibraryServiceTests.cs
+│
+├── .github/
+│   └── workflows/
+│       └── dotnet.yml
+│
+└── README.md
+
 
 ## How to Run Tests
 dotnet restore  
