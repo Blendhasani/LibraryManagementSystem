@@ -9,16 +9,18 @@ namespace LibraryManagementSystem.Core.Services
 {
 	public class LibraryService
 	{
+		private readonly List<Book> _books = new();
+
 		public void AddBook(string title, string author)
 		{
-			// not implemented yet
+			if (string.IsNullOrWhiteSpace(title))
+				throw new ArgumentException("Title cannot be empty.");
+
+			_books.Add(new Book { Title = title, Author = author, IsAvailable = true });
 		}
 
-		public List<Book> GetAllBooks()
-		{
-			// not implemented yet
-			return new List<Book>();
-		}
+		public List<Book> GetAllBooks() => _books;
+
 
 		public void BorrowBook(string title)
 		{
