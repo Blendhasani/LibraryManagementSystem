@@ -17,7 +17,7 @@ namespace LibraryManagementSystem.Tests
 			service.AddBook("1984", "George Orwell");
 			var books = service.GetAllBooks();
 
-			Assert.Single(books); // will fail (no logic yet)
+			Assert.Single(books); // passes 
 		}
 
 		[Fact]
@@ -42,14 +42,14 @@ namespace LibraryManagementSystem.Tests
 			service.ReturnBook("Dune");
 
 			var book = service.GetAllBooks().First();
-			Assert.True(book.IsAvailable); // fails
+			Assert.True(book.IsAvailable); // will pass because but no logic implemented yet for the return part
 		}
 
 		[Fact]
 		public void AddBook_ShouldThrow_WhenTitleIsEmpty()
 		{
 			var service = new LibraryService();
-			Assert.Throws<ArgumentException>(() => service.AddBook("", "Unknown")); // fails
+			Assert.Throws<ArgumentException>(() => service.AddBook("", "Unknown")); // passes
 		}
 	}
 }

@@ -8,6 +8,13 @@ This project implements a small library system using Test-Driven Development (TD
 - Prevent duplicate or invalid entries.
 - Full unit test coverage using xUnit.
 
+## Features (Week 2)
+- Add books to library ✔️  
+- List all available books ✔️  
+- Borrow and return books (planned) ⏳  
+- Prevent duplicate or invalid entries ✔️  
+- Full unit test coverage using xUnit (incremental) ✔️
+
 ## Technologies
 C# (.NET 8), xUnit, GitHub Actions CI.
 
