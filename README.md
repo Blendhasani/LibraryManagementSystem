@@ -52,6 +52,7 @@ The goal is to incrementally design, test, and implement functionality while mai
 - **GitHub Actions** (continuous integration)
 
 ---
+```bash
 
 ## 📁 Architecture (Updated — Week 3)
 LibraryManagementSystem/
@@ -76,7 +77,7 @@ LibraryManagementSystem/
 └── README.md
 
 ---
-
+```
 ## 🧪 Test Summary (Week 3 Snapshot)
 
 
