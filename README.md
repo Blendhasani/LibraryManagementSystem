@@ -77,7 +77,9 @@ LibraryManagementSystem/
 │ ├── AddBook_ShouldIncreaseBookCount() ✔️
 │ ├── AddBook_ShouldThrow_WhenTitleIsEmpty() ✔️
 │ ├── BorrowBook_ShouldMarkBookAsUnavailable() ✔️
-│ └── ReturnBook_ShouldMarkBookAsAvailable() ⏭ Skipped (Week 4)
+│ ├── ReturnBook_ShouldMarkBookAsAvailable() ✔️
+│ ├── ReturnBook_ShouldThrow_WhenBookIsAlreadyAvailable() ✔️
+│ └── ReturnBook_ShouldThrow_WhenBookDoesNotExist() ✔️
 │
 ├── .github/
 │ └── workflows/
