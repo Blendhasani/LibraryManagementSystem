@@ -2,54 +2,63 @@
 
 ## Overview
 This project implements a small library system following Test-Driven Development (TDD).  
-The goal is to incrementally design, test, and implement functionality while maintaining continuous integration and clean code principles.
+The goal is to iteratively design, test, and implement features while keeping clean architecture, CI validation, and measurable test coverage.
 
 ---
 
 ## 📅 Progress by Iteration
 
 ### ✅ Week 1 — Planning & Setup
-- Created solution structure
-- Added README, Git repo setup, CI pipeline draft
-- Defined user stories and project scope
-- First failing tests written (Red Phase)
+- Created project structure and repository
+- Added CI pipeline (GitHub Actions)
+- Wrote first failing tests (Red Phase)
+- Defined project scope and user stories
 
 ### 🛠️ Week 2 — Core Feature (Iteration 1)
-- Implemented first feature based on failing tests:
-  - Add book
-  - List books
-  - Validate title input
-- CI pipeline running successfully
-- All initial tests passing (Green Phase)
+- Implemented **AddBook** and **ListBooks**
+- Basic validation applied
+- All tests passing (Red → Green)
+- CI pipeline working successfully
 
 ### 🚀 Week 3 — Extend & Refactor (Iteration 2)
-- Added second feature: **BorrowBook**
-- Refactored service logic for maintainability
-- Updated architecture diagram
-- CI passing after skipping next planned test:
-  - `ReturnBook` test marked `[Skip]` for next iteration
-- Test coverage snapshot recorded
+- Implemented **BorrowBook**
+- Refactored service logic (helper method introduced)
+- Updated architecture diagram and documentation
+- CI passing
+- `ReturnBook` test added but skipped (planned for Week 4)
+- Recorded code coverage snapshot
+
+### 🎯 Week 4 — Polish & Optimize (Iteration 3)
+- Implemented **ReturnBook** feature
+- Added edge-case validation:
+  - Throw if returning a non-existing book  
+  - Throw if returning an already available book
+- Expanded test suite with new assertions
+- Improved design (shared helper method, cleaner logic)
+- Achieved increased test coverage (>85%)
+- Removed skipped test — all tests now active and passing
 
 ---
 
-## Features Progress
+## Feature Status
 
 | Feature | Status |
 |--------|--------|
-| Add new books | ✔️ Done |
-| List books | ✔️ Done |
-| Borrow books | ✔️ Implemented (Week 3) |
-| Return books | ⏳ Planned for Week 4 |
-| Prevent invalid/duplicate entries | ✔️ Done |
-| CI/CD | ✔️ Active |
-| Full automated testing | 🧪 In progress |
+| Add new books | ✔ Done |
+| List available books | ✔ Done |
+| Borrow books | ✔ Done |
+| Return books | ✔ Completed (Week 4) |
+| Prevent invalid/duplicate entries | ✔ Done |
+| CI Integration | ✔ Active |
+| Test coverage improvement | ✔ Completed |
 
 ---
 
 ## Technologies Used
 - **C# (.NET 8)**
-- **xUnit** (unit testing)
-- **GitHub Actions** (continuous integration)
+- **xUnit** for testing
+- **Coverlet + ReportGenerator** for coverage reports
+- **GitHub Actions** for CI
 
 ---
 ```bash
@@ -78,19 +87,18 @@ LibraryManagementSystem/
 
 ---
 ```
-## 🧪 Test Summary (Week 3 Snapshot)
+---
 
-
-**Current Coverage Results:**
+## 🧪 Test Coverage Results (Week 4)
 
 | Metric | Value |
 |--------|-------|
-| Line Coverage | **88%** |
-| Branch Coverage | **75%** |
-| Test Suite Status | ✔ All planned tests passing (1 skipped for next iteration) |
+| Line Coverage | **95%** |
+| Branch Coverage | **85%** |
+| Test Status | ✔ All tests passing |
 
-A detailed HTML report is stored in:  
-`/LibraryManagementSystem.Tests/TestResults/.../coverage-report/index.html`
+📁 HTML coverage report path:  
+`LibraryManagementSystem.Tests/TestResults/.../coverage-report/index.html`
 
 ---
 
@@ -99,4 +107,3 @@ A detailed HTML report is stored in:
 ```bash
 dotnet restore
 dotnet test
-
