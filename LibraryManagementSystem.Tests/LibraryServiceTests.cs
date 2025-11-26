@@ -31,9 +31,18 @@ namespace LibraryManagementSystem.Tests
 
 			Assert.False(book.IsAvailable); // fails
 		}
+		[Fact]
+		public void BorrowBook_ShouldThrow_WhenBookAlreadyBorrowed()
+		{
+			var service = new LibraryService();
+			service.AddBook("Dune", "Frank Herbert");
+			service.BorrowBook("Dune");
 
-		[Fact(Skip = "ReturnBook feature scheduled for next iteration")]
-		public void ReturnBook_ShouldMarkBookAsAvailable()
+			Assert.Throws<InvalidOperationException>(() => service.BorrowBook("Dune"));
+		}
+
+		[Fact]
+		public void ReturnBook_ShouldMarkBookAsAvailable_WhenBookWasBorrowed()
 		{
 			var service = new LibraryService();
 			service.AddBook("Dune", "Frank Herbert");
@@ -41,8 +50,32 @@ namespace LibraryManagementSystem.Tests
 			service.BorrowBook("Dune");
 			service.ReturnBook("Dune");
 
-			var book = service.GetAllBooks().First();
+			var book = service.GetAllBooks().First(b => b.Title == "Dune");
 			Assert.True(book.IsAvailable);
+		}
+
+		[Fact]
+		public void ReturnBook_ShouldThrow_WhenTitleIsEmpty()
+		{
+			var service = new LibraryService();
+			Assert.Throws<ArgumentException>(() => service.ReturnBook(""));
+		}
+
+		[Fact]
+		public void ReturnBook_ShouldThrow_WhenBookDoesNotExist()
+		{
+			var service = new LibraryService();
+			Assert.Throws<InvalidOperationException>(() => service.ReturnBook("Unknown Book"));
+		}
+
+		[Fact]
+		public void ReturnBook_ShouldThrow_WhenBookIsAlreadyAvailable()
+		{
+			var service = new LibraryService();
+			service.AddBook("Dune", "Frank Herbert");
+
+			// Book was never borrowed → already available
+			Assert.Throws<InvalidOperationException>(() => service.ReturnBook("Dune"));
 		}
 
 

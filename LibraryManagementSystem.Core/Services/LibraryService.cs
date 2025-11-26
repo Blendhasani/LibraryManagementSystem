@@ -32,7 +32,24 @@ namespace LibraryManagementSystem.Core.Services
 		{
 			if (string.IsNullOrWhiteSpace(title))
 				throw new ArgumentException("Title cannot be empty.");
+			//validation week 4
+			if (_books.Any(b => b.Title.Equals(title, StringComparison.OrdinalIgnoreCase)))
+				throw new InvalidOperationException("A book with this title already exists.");
+
 		}
+
+		// Shared lookup logic
+		private Book GetBookOrThrow(string title)
+		{
+			var book = _books.FirstOrDefault(b =>
+				b.Title.Equals(title, StringComparison.OrdinalIgnoreCase));
+
+			if (book is null)
+				throw new InvalidOperationException($"Book '{title}' not found.");
+
+			return book;
+		}
+
 
 		public void AddBook(string title, string author)
 		{
@@ -52,17 +69,33 @@ namespace LibraryManagementSystem.Core.Services
 
 		public void BorrowBook(string title)
 		{
-			var book = _books.FirstOrDefault(b => b.Title == title);
+			var book = GetBookOrThrow(title);
 
-			if (book == null)
-				throw new InvalidOperationException("Book not found.");
+			if (!book.IsAvailable)
+				throw new InvalidOperationException("Book is already borrowed.");
 
 			book.IsAvailable = false;
 		}
-
 		public void ReturnBook(string title)
 		{
-			// not implemented yet
+			if (string.IsNullOrWhiteSpace(title))
+				throw new ArgumentException("Title cannot be empty.");
+
+			var book = _books.FirstOrDefault(b => b.Title == title);
+
+			if (book is null)
+				throw new InvalidOperationException("Book not found.");
+
+			if (book.IsAvailable)
+				throw new InvalidOperationException("Book is already returned and available.");
+
+			book.IsAvailable = true;
 		}
+
+
+
+
+
+
 	}
 }
