@@ -29,7 +29,7 @@ namespace LibraryManagementSystem.Tests
 			service.BorrowBook("Dune");
 			var book = service.GetAllBooks().First();
 
-			Assert.False(book.IsAvailable); // fails
+			Assert.False(book.IsAvailable); //passes
 		}
 		[Fact]
 		public void BorrowBook_ShouldThrow_WhenBookAlreadyBorrowed()
