@@ -74,7 +74,7 @@ namespace LibraryManagementSystem.Tests
 			var service = new LibraryService();
 			service.AddBook("Dune", "Frank Herbert");
 
-			// Book was never borrowed → already available
+			// Book was never borrowed it is already available
 			Assert.Throws<InvalidOperationException>(() => service.ReturnBook("Dune"));
 		}
 

@@ -28,7 +28,10 @@ namespace LibraryManagementSystem.Core.Services
 		//}
 
 		//After refactoring
-		private void ValidateBook(string title)
+
+		//Ndryshuar per demo
+		//private void ValidateBook(string title)
+		private void EnsureValidTitle(string title)
 		{
 			if (string.IsNullOrWhiteSpace(title))
 				throw new ArgumentException("Title cannot be empty.");
@@ -53,7 +56,7 @@ namespace LibraryManagementSystem.Core.Services
 
 		public void AddBook(string title, string author)
 		{
-			ValidateBook(title);
+			EnsureValidTitle(title);
 
 			_books.Add(new Book
 			{
@@ -67,14 +70,29 @@ namespace LibraryManagementSystem.Core.Services
 		public List<Book> GetAllBooks() => _books;
 
 
-		public void BorrowBook(string title)
+		public void BorrowBook(string title,
+			bool ignoreAvailability = false //parameter i shtuar per demo
+			)
 		{
 			var book = GetBookOrThrow(title);
 
-			if (!book.IsAvailable)
-				throw new InvalidOperationException("Book is already borrowed.");
+			if (!ignoreAvailability)
+			{
+				EnsureBookCanBeBorrowed(book);
+			}
+			//larguar per demo
+			//if (!book.IsAvailable)
+			//throw new InvalidOperationException("Book is already borrowed.");
+			EnsureBookCanBeBorrowed(book);
 
 			book.IsAvailable = false;
+		}
+
+		//shtuar per demo
+		private void EnsureBookCanBeBorrowed(Book book)
+		{
+			if (!book.IsAvailable)
+				throw new InvalidOperationException("Book is already borrowed.");
 		}
 		public void ReturnBook(string title)
 		{
