@@ -21,6 +21,13 @@ namespace LibraryManagementSystem.Tests
 		}
 
 		[Fact]
+		public void AddBook_ShouldThrow_WhenTitleIsEmpty()
+		{
+			var service = new LibraryService();
+			Assert.Throws<ArgumentException>(() => service.AddBook("", "Unknown")); // passes
+		}
+
+		[Fact]
 		public void BorrowBook_ShouldMarkBookAsUnavailable()
 		{
 			var service = new LibraryService();
@@ -79,11 +86,6 @@ namespace LibraryManagementSystem.Tests
 		}
 
 
-		[Fact]
-		public void AddBook_ShouldThrow_WhenTitleIsEmpty()
-		{
-			var service = new LibraryService();
-			Assert.Throws<ArgumentException>(() => service.AddBook("", "Unknown")); // passes
-		}
+	
 	}
 }
