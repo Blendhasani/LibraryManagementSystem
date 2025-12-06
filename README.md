@@ -78,8 +78,9 @@ The goal is to iteratively design, test, and implement features while keeping cl
 - **GitHub Actions** for CI
 - Simple **Console App** for interactive demo
 
----
 
+---
+```bash
 ## 📁 Architecture (Updated — Week 5)
 LibraryManagementSystem/
 │
