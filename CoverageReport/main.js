@@ -214,7 +214,7 @@ var assemblies = [
     "name": "LibraryManagementSystem.Core",
     "classes": [
       { "name": "LibraryManagementSystem.Core.Models.Book", "rp": "LibraryManagementSystem.Core_Book.html", "cl": 3, "ucl": 0, "cal": 3, "tl": 15, "cb": 0, "tb": 0, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
-      { "name": "LibraryManagementSystem.Core.Services.LibraryService", "rp": "LibraryManagementSystem.Core_LibraryService.html", "cl": 38, "ucl": 2, "cal": 40, "tl": 101, "cb": 12, "tb": 14, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
+      { "name": "LibraryManagementSystem.Core.Services.LibraryService", "rp": "LibraryManagementSystem.Core_LibraryService.html", "cl": 39, "ucl": 0, "cal": 39, "tl": 111, "cb": 14, "tb": 14, "cm": 0, "fcm": 0, "tm": 0, "lch": [], "bch": [], "mch": [], "mfch": [], "hc": [], "metrics": { } },
     ]},
 ];
 
